@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Психотипы сотрудников</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+<header>
+  <h1>Психотипы сотрудников</h1>
+  <div class="sub">Локальная обработка · прототип</div>
+</header>
+<main>
+
+  <!-- Главная страница -->
+  <div id="home">
+    <div class="grid">
+      <div class="card" onclick="openSection('types')">
+        <h2>📚 Психотипы и сочетания</h2>
+        <p>Ядро + оболочка + метка → профиль сотрудника и подбор ролей.</p>
+      </div>
+      <div class="card" onclick="openSection('test')">
+        <h2>🧪 Определение психотипа</h2>
+        <p>Опросник (40 вопросов) по шкале 1–5.</p>
+      </div>
+      <div class="card" onclick="openSection('interpret')">
+        <h2>💬 Интерпретация по описанию</h2>
+        <p>Пишешь, как человек ведёт себя — получаешь ядро, оболочку и метку.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Блок 1 -->
+<section id="section-types" class="section">
+  <div class="back-btn" onclick="goHome()"><span>←</span> Назад</div>
+
+  <h2>Психотипы и сочетания</h2>
+  <p class="muted">Выбери ядро, оболочку и метку. Ниже появится подробный профиль.</p>
+
+  <label>Основной радикал (ядро)</label>
+  <select id="types-main">
+    <option value="">Не выбран</option>
+  </select>
+
+  <label>Второй радикал (оболочка)</label>
+  <select id="types-second">
+    <option value="">Не выбран</option>
+  </select>
+
+  <label>Третий радикал (метка / стресс-профиль)</label>
+  <select id="types-third">
+    <option value="">Не выбран</option>
+  </select>
+
+  <div style="margin-top:10px; display:flex; gap:10px;">
+    <button onclick="showTypeCombo()">Показать профиль</button>
+    <button class="secondary" onclick="runRolePicker()">Подбор ролей</button>
+  </div>
+
+  <div id="types-result" class="result-block" style="display:none;"></div>
+<button id="btn-full-profile" class="secondary" style="display:none; margin-top:10px;"
+        onclick="toggleFullProfile()">
+  Показать полный разбор
+</button>
+
+<div id="types-full" class="result-block" style="display:none; margin-top:10px;"></div>
+  <hr style="margin:20px 0;">
+
+  <div id="role-result" class="result-block" style="display:none;"></div>
+</section>
+
+  <!-- Блок 2 -->
+  <section id="section-test" class="section">
+    <div class="back-btn" onclick="goHome()">← Назад</div>
+    <h2>Определение психотипа</h2>
+    <p class="muted">Отметь по шкале от 1 до 5, насколько утверждение похоже на человека.</p>
+
+    <div id="full-test-container"></div>
+    <button onclick="handleFullTestSubmit()">Получить результат</button>
+    <div id="full-test-result" class="result-block" style="display:none;"></div>
+  </section>
+
+  <!-- Блок 3 -->
+  <section id="section-interpret" class="section">
+    <div class="back-btn" onclick="goHome()">← Назад</div>
+    <h2>Интерпретация по характеристикам</h2>
+
+    <label>Имя / обозначение</label>
+    <input type="text" id="interp-name" placeholder="Например: Паша, менеджер" />
+
+    <p class="muted" style="margin-top:12px;">Выбери характеристики, которые описывают человека:</p>
+
+    <div id="traits-container" style="margin-top:16px;"></div>
+
+    <button onclick="computeTraitsInterpretation()" style="margin-top:14px;">Получить интерпретацию</button>
+    <div id="interp-result" class="result-block" style="display:none;"></div>
+  </section>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
