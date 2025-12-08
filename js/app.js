@@ -5,6 +5,11 @@ let MODEL = null;
 let QUESTIONS_MODEL = null;
 let WEIGHTS_MODEL = null;
 
+function startTest() {
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("home-grid").style.display = "grid";
+}
+
 // ===============================
 // Навигация
 // ===============================
