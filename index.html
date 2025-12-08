@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Психотипы сотрудников</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+<header>
+  <h1>Психотипы сотрудников</h1>
+  <div class="sub">Локальная обработка · прототип</div>
+</header>
+<main>
+
+  <!-- Главная страница -->
+  <div id="home">
+    <!-- Welcome section -->
+    <div id="welcome" class="welcome-section">
+      <h1 class="welcome-title">Добро пожаловать</h1>
+      <p class="welcome-subtitle">Определение психотипа сотрудника на основе 7 радикалов</p>
+
+      <div class="welcome-content">
+        <div class="radicals-info">
+          <h3>7 Психотипов (радикалов)</h3>
+          <div class="radicals-grid">
+            <div class="radical-card radical-1-bg">
+              <div class="radical-icon">🔥</div>
+              <strong>Гипертим</strong>
+              <p>Энергичный, активный, динамичный</p>
+            </div>
+            <div class="radical-card radical-2-bg">
+              <div class="radical-icon">💚</div>
+              <strong>Эмотив</strong>
+              <p>Чувствительный, эмпатичный, заботливый</p>
+            </div>
+            <div class="radical-card radical-3-bg">
+              <div class="radical-icon">⏰</div>
+              <strong>Эпилептоид</strong>
+              <p>Пунктуальный, дисциплинированный, ответственный</p>
+            </div>
+            <div class="radical-card radical-4-bg">
+              <div class="radical-icon">🧠</div>
+              <strong>Шизоид</strong>
+              <p>Аналитичный, интровертированный, логичный</p>
+            </div>
+            <div class="radical-card radical-5-bg">
+              <div class="radical-icon">⭐</div>
+              <strong>Истероид</strong>
+              <p>Демонстративный, харизматичный, творческий</p>
+            </div>
+            <div class="radical-card radical-6-bg">
+              <div class="radical-icon">🛡️</div>
+              <strong>Тревожный</strong>
+              <p>Осторожный, предусмотрительный, переживающий</p>
+            </div>
+            <div class="radical-card radical-7-bg">
+              <div class="radical-icon">👑</div>
+              <strong>Паранойял</strong>
+              <p>Решительный, ответственный, волевой</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-section">
+          <h3>Зачем это нужно?</h3>
+          <div class="why-content">
+            <div class="why-item">
+              <div class="why-icon">🎯</div>
+              <div class="why-text">
+                <strong>Улучшить коммуникацию</strong>
+                <p>Понять, как разные люди воспринимают информацию и что их мотивирует.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon">👥</div>
+              <div class="why-text">
+                <strong>Построить эффективные команды</strong>
+                <p>Подобрать роли и задачи, соответствующие психотипу каждого сотрудника.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon">📈</div>
+              <div class="why-text">
+                <strong>Повысить продуктивность</strong>
+                <p>Когда люди работают в соответствии со своей природой — результаты лучше.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon">🤝</div>
+              <div class="why-text">
+                <strong>Снизить конфликты</strong>
+                <p>Зная особенности радикалов, легче предугадать реакции и избежать недопониманий.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="blocks-info">
+          <h3>Как это работает</h3>
+          <div class="blocks-list">
+            <div class="block-item">
+              <div class="block-number">1</div>
+              <div>
+                <strong>📚 Психотипы и сочетания</strong>
+                <p>Выберите ядро, оболочку и метку из 7 радикалов. Система покажет вам подробный профиль и подходящие роли.</p>
+              </div>
+            </div>
+            <div class="block-item">
+              <div class="block-number">2</div>
+              <div>
+                <strong>🧪 Определение психотипа</strong>
+                <p>Пройдите опросник из 45 вопросов. Система автоматически рассчитает ваш психотип и покажет индикатор честности.</p>
+              </div>
+            </div>
+            <div class="block-item">
+              <div class="block-number">3</div>
+              <div>
+                <strong>💬 Интерпретация по описанию</strong>
+                <p>Выберите характеристики человека — система определит его психотип и даст рекомендации.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button id="start-btn" class="start-button" onclick="startFromWelcome()">Запустить</button>
+    </div>
+
+    <!-- Home grid (hidden initially, shows after start) -->
+    <div class="grid" style="display:none;" id="home-grid">
+      <div class="card" onclick="openSection('types')">
+        <h2>📚 Психотипы и сочетания</h2>
+        <p>Ядро + оболочка + метка → профиль сотрудника и подбор ролей.</p>
+      </div>
+      <div class="card" onclick="openSection('test')">
+        <h2>🧪 Определение психотипа</h2>
+        <p>Опросник (45 вопросов) по шкале 1–5. Отвечайте максимально честно</p>
+      </div>
+      <div class="card" onclick="openSection('interpret')">
+        <h2>💬 Интерпретация по описанию</h2>
+        <p>Опишите, как человек ведёт себя — получаете ядро, оболочку и метку.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Блок 1 -->
+<section id="section-types" class="section">
+  <div class="back-btn" onclick="goHome()"><span>←</span> Назад</div>
+
+  <h2>Психотипы и сочетания</h2>
+  <p class="muted">Выбери ядро, оболочку и метку. Ниже появится подробный профиль.</p>
+
+  <label>Основной радикал (ядро)</label>
+  <select id="types-main">
+    <option value="">Не выбран</option>
+  </select>
+
+  <label>Второй радикал (оболочка)</label>
+  <select id="types-second">
+    <option value="">Не выбран</option>
+  </select>
+
+  <label>Третий радикал (метка / стресс-профиль)</label>
+  <select id="types-third">
+    <option value="">Не выбран</option>
+  </select>
+
+  <div style="margin-top:10px; display:flex; gap:10px;">
+    <button onclick="showTypeCombo()">Показать профиль</button>
+    <button class="secondary" onclick="runRolePicker()">Подбор ролей</button>
+  </div>
+
+  <div id="types-result" class="result-block" style="display:none;"></div>
+<button id="btn-full-profile" class="secondary" style="display:none; margin-top:10px;"
+        onclick="toggleFullProfile()">
+  Показать полный разбор
+</button>
+
+<div id="types-full" class="result-block" style="display:none; margin-top:10px;"></div>
+  <hr style="margin:20px 0;">
+
+  <div id="role-result" class="result-block" style="display:none;"></div>
+</section>
+
+  <!-- Блок 2 -->
+  <section id="section-test" class="section">
+    <div class="back-btn" onclick="goHome()">← Назад</div>
+    <h2>Определение психотипа</h2>
+    <p class="muted">Отметь по шкале от 1 до 5, насколько утверждение похоже на человека.</p>
+
+    <div id="full-test-container"></div>
+    <button onclick="handleFullTestSubmit()">Получить результат</button>
+    <div id="full-test-result" class="result-block" style="display:none;"></div>
+  </section>
+
+  <!-- Блок 3 -->
+  <section id="section-interpret" class="section">
+    <div class="back-btn" onclick="goHome()">← Назад</div>
+    <h2>Интерпретация по характеристикам</h2>
+
+    <label>Имя / обозначение</label>
+    <input type="text" id="interp-name" placeholder="Например: Паша, менеджер" />
+
+    <p class="muted" style="margin-top:12px;">Выбери характеристики, которые описывают человека:</p>
+
+    <div id="traits-container" style="margin-top:16px;"></div>
+
+    <button onclick="computeTraitsInterpretation()" style="margin-top:14px;">Получить интерпретацию</button>
+    <div id="interp-result" class="result-block" style="display:none;"></div>
+  </section>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
